@@ -26,8 +26,14 @@
                     </a>
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
-                    {{-- <a class="no-underline hover:underline" href="/">Home</a>
-                    <a class="no-underline hover:underline" href="/blog">Blogs</a> --}}
+                    <a class="no-underline hover:underline" href="/">Home</a>
+                    <a class="no-underline hover:underline" href="/blog">Blogs</a>
+                    @if (Auth::check() && Auth::user()->user == "Author")
+                    <a class="no-underline hover:underline" href="/myblog">My Blogs</a>   
+                    @endif
+                    @if (Auth::check() && Auth::user()->user == "Moderator")
+                    <a class="no-underline hover:underline" href="/blogrequest">Blog Requests</a>   
+                    @endif
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
