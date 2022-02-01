@@ -31,4 +31,6 @@ Route::get('/blogrequest', [PostsController::class, 'blogrequest']);
 
 Route::get('/published/{id}', [PostsController::class, 'updateStatus']);
 
+Route::get('/rejected/{id}', [PostsController::class, 'rejectBlog']);
+
 

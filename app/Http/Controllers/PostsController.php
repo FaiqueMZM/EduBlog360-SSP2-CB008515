@@ -134,18 +134,24 @@ class PostsController extends Controller
 
     public function updateStatus($id)
     {
-        // Post::where('title', $title)
-        //     ->update([
-        //         'status' => '1',
-        //     ]);
-        //     Post::save();
         $blog = Post::where('id', '=', $id)->first();
-        // $blog1 = Post
+        
         $blog->status = '1';
         $blog->save();
 
         return redirect('/blog')
             ->with('message', '  Post has been published!');
+    }
+
+    public function rejectBlog($id)
+    {
+        $blog = Post::where('id', '=', $id)->first();
+        
+        $blog->status = '0';
+        $blog->save();
+
+        return redirect('/blog')
+            ->with('message', '  Post has been rejected!');
     }
 
     /**
