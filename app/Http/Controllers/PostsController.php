@@ -116,6 +116,7 @@ class PostsController extends Controller
             ->update([
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
+                'status' => '0',
                 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title),
                 'user_id' => auth()->user()->id
             ]);
