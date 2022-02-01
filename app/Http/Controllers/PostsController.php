@@ -15,20 +15,12 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
     /**
-     * Display a listing of the resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // $user = Auth::user()->user;
-        // if($user == "Moderator"){
-        //     return view('blog.indexmoderator')
-        //     ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-        // }else{
-        //     return view('blog.index')
-        //     ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
-        // }
         return view('blog.index')
         ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
@@ -42,7 +34,7 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 
      *
      * @return \Illuminate\Http\Response
      */
@@ -52,9 +44,9 @@ class PostsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -83,9 +75,9 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 
      *
-     * @param  string  $slug
+     * @param  string  
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
@@ -95,9 +87,9 @@ class PostsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 
      *
-     * @param  string  $slug
+     * @param  string  
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -107,10 +99,10 @@ class PostsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $slug
+     * @param  \Illuminate\Http\Request  
+     * @param  string  
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -155,9 +147,9 @@ class PostsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 
      *
-     * @param  int  $id
+     * @param  int  
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
